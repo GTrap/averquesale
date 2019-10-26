@@ -26,10 +26,16 @@ public class Movimiento : MonoBehaviour
          }
          if (Input.GetButtonDown("w") && salto ) {
             rb.AddForce(new Vector3(0, 2, 0) * FuerzaSalto);
-            salto = false;
          }
          
     }
+   void OnCollisionExit2D(Collision2D other){
+         if (other.gameObject.name == "buen suelo") {
+            
+            salto = false;
+ 
+         }
+   }
    void OnCollisionEnter2D(Collision2D other){
          if (other.gameObject.name == "buen suelo") {
             
